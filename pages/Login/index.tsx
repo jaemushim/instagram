@@ -48,7 +48,7 @@ const Login = () => {
           <div className="relative hidden md:block self-center basis-[454px]  h-[618px] bg-[url('../assets/images/phone.png')] mb-5 -ml-9 -mr-4">
             <div className="absolute top-[100px] right-[64px] w-[238px] h-[426px]">
               <div className="slider"></div>
-              <FadeGallery>
+              <FadeGallery duration={6}>
                 <Image src={Slide01Img} width="238" height="426" alt="" />
                 <Image src={Slide02Img} width="238" height="426" alt="" />
                 <Image src={Slide03Img} width="238" height="426" alt="" />
