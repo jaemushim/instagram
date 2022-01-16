@@ -18,43 +18,28 @@
   .footer-text {
     @apply text-xs my-1 mx-2 text-[rgb(142,142,142)];
   }
-}
 
-.fadeinout {
-  animation: fadeinout 12s ease-in;
-}
-
-@keyframes fadeinout {
-  0% {
-    opacity: 0;
+  .fadeinout {
+    transition: opacity 1.5s ease-in;
   }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-.like-button-animation {
-  animation-name: like-button-animation;
-  animation-timing-function: ease-in-out;
-  animation-duration: 0.45s;
-  transform: scale(1);
-}
-
-@keyframes like-button-animation {
-  0%,
-  to {
-    -webkit-transform: scale(1);
+  .like-button-animation {
+    animation: like-button-animation 0.45s ease-in-out;
     transform: scale(1);
   }
-  25% {
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
-  }
-  50% {
-    -webkit-transform: scale(0.95);
-    transform: scale(0.95);
+
+  @keyframes like-button-animation {
+    0%,
+    to {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+    25% {
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
+    }
+    50% {
+      -webkit-transform: scale(0.95);
+      transform: scale(0.95);
+    }
   }
 }
