@@ -12,15 +12,15 @@ const FadeGallery: FC<IProps> = ({ children }) => {
     if (children) {
       setImgNum(Object.keys(children).length);
     }
-  }, []);
+  }, [children]);
   useEffect(() => {
     const intervalId = setInterval(() => {
-      if (count < imgNum) {
+      if (count < imgNum - 1) {
         setCount((num) => num + 1);
       } else {
         setCount(0);
       }
-    }, 3000);
+    }, 12000);
 
     return () => clearInterval(intervalId as ReturnType<typeof setInterval>);
   }, [count, imgNum]);
@@ -31,7 +31,7 @@ const FadeGallery: FC<IProps> = ({ children }) => {
         return (
           <>
             <div className="absolute">
-              <div className={`${count === index ? 'opacity-100' : ''} opacity-0 fadeinout`}>
+              <div className={`${count === index ? 'opacity-100 fadeinout relative z-10' : ''}`}>
                 {React.cloneElement(child as React.ReactElement)}
               </div>
             </div>

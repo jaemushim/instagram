@@ -21,7 +21,7 @@
 }
 
 .fadeinout {
-  animation: opacity 3s ease-in;
+  animation: fadeinout 12s ease-in;
 }
 
 @keyframes fadeinout {
