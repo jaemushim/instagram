@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .navBtn {
+    @apply hidden h-6 md:inline-flex cursor-pointer hover:scale-125 transition-all duration-150 ease-out;
+  }
+  .btn-icon {
+    @apply h-7 hover:scale-125 cursor-pointer transition-all duration-150 ease-out;
+  }
+  .input {
+    @apply w-full h-9 pt-1 px-2 text-ellipsis border border-gray-300 outline-none rounded-sm bg-gray-50 placeholder:text-xs placeholder:text-[#999];
+  }
+  .box {
+    @apply bg-white border border-gray-300 rounded-sm;
+  }
+  .footer-text {
+    @apply text-xs my-1 mx-2 text-[rgb(142,142,142)];
+  }
+}
+
+.fadeinout {
+  animation: opacity 3s ease-in;
+}
+
+@keyframes fadeinout {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.like-button-animation {
+  animation-name: like-button-animation;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.45s;
+  transform: scale(1);
+}
+
+@keyframes like-button-animation {
+  0%,
+  to {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  25% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  50% {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+}
