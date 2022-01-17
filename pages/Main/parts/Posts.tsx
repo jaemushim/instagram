@@ -1,3 +1,4 @@
+import useFetch from '@utils/useFetch';
 import Post from './Post';
 
 export interface PostType {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Login from './Login';
 
-import InstaIcon from '/assets/images/instaIcon.svg';
+import InstaIcon from '@images/instaIcon.svg';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
