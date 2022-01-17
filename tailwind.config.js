@@ -13,6 +13,9 @@ module.exports = {
         '0&-130': '0 -130px',
         '-414&-259': '-414px -259px',
       },
+      screens: {
+        xs: '450px',
+      },
     },
   },
   plugins: [require('@tailwindcss/forms'), require('tailwind-scrollbar'), require('tailwind-scrollbar-hide')],

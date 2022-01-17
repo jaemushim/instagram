@@ -9,18 +9,22 @@ import Slide03Img from '/assets/images/f0c687aa6ec2.jpg';
 import Slide04Img from '/assets/images/842fe5699220.jpg';
 import Slide05Img from '/assets/images/0a2d3016f375.jpg';
 import FadeGallery from '../../components/FadeGallery';
+import useInput from '../../hooks/useInput';
 
 const Login = () => {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [errorMsg, setErrorMsg] = useState<string>('');
-  const handleEmail = useCallback((e) => {
-    setEmail(e.target.value);
-  }, []);
+  const [email, handleChangeEmail] = useInput({
+    type: 'string',
+  });
+  const [pwd, handleChangePwd] = useInput({
+    type: 'string',
+  });
 
-  const handlePassword = useCallback((e) => {
-    setPassword(e.target.value);
-  }, []);
+  const [isPwdShow, setIsPwdShow] = useState<boolean>(false);
+  const [errorMsg, setErrorMsg] = useState<string>('');
+
+  const handlePwdShow = () => {
+    setIsPwdShow(!isPwdShow);
+  };
 
   const handleSubmit = useCallback(
     (e: React.MouseEvent<HTMLFormElement>) => {
@@ -28,22 +32,18 @@ const Login = () => {
 
       if (email !== 'insta_clone') {
         setErrorMsg('입력한 사용자 이름을 사용하는 계정을 찾을 수 없습니다. 사용자 이름을 확인하고 다시 시도하세요.');
-      } else if (password !== '12345') {
+      } else if (pwd !== '12345') {
         setErrorMsg('잘못된 비밀번호입니다. 다시 확인하세요.');
-      } else if (email === 'insta_clone' && password === '12345') {
-        console.log(`success`);
+      } else if (email === 'insta_clone' && pwd === '12345') {
         Router.push('/Main');
       }
     },
-    [email, password],
+    [email, pwd],
   );
-
-  console.log(`email,`, email);
-  console.log(`password`, password);
   return (
     <>
       <main className="flex text-center bg-almost-white">
-        <div className="flex justify-center w-full mx-auto mt-8 max-w-4xl pb-8">
+        <div className="flex justify-center w-full mx-auto xs:mt-8 max-w-[935px] pb-8">
           {/* left */}
           <div className="relative hidden md:block self-center basis-[454px]  h-[618px] bg-[url('../assets/images/phone.png')] mb-5 -ml-9 -mr-4">
             <div className="absolute top-[100px] right-[64px] w-[238px] h-[426px]">
@@ -58,35 +58,62 @@ const Login = () => {
             </div>
           </div>
           {/* Right */}
-          <div className="justify-center mt-8 max-w-[350px] bg-white">
-            <div className="box pt-2.5">
+          <div className="justify-center w-[350px] xs:mt-8 bg-white">
+            <div className="xs:box pt-2.5 border-0">
               <h1 className="overflow-hidden w-44 h-[51px] mt-5 mb-3 mx-auto bg-[url('../assets/images/32f0a4f27407.png')] bg-0&-130 bg-no-repeat">
                 <span className="sr-only">instagram</span>
               </h1>
               <form onSubmit={handleSubmit} className="mx-10">
-                <input
-                  type="text"
-                  name="email"
-                  value={email}
-                  onChange={handleEmail}
-                  className="input mt-6 mb-1.5"
-                  title="전화번호, 사용자 이름 또는 이메일"
-                  placeholder="전화번호, 사용자 이름 또는 이메일"
-                />
+                <div className="relative mt-9 mb-1.5">
+                  <input
+                    id="id"
+                    type="text"
+                    name="email"
+                    value={email}
+                    onChange={handleChangeEmail}
+                    autoComplete="false"
+                    className="input pt-3 pb-0 text-xs"
+                  />
+                  <label
+                    htmlFor="id"
+                    className={`${email && 'active'}
+                    pointer-events-none placeholder-scale absolute left-2 top-1/2 transform -translate-y-1/2 text-xs text-gray-400`}
+                  >
+                    전화번호, 사용자 이름 또는 이메일
+                  </label>
+                </div>
 
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  value={password}
-                  onChange={handlePassword}
-                  className="input"
-                  title="비밀번호"
-                  placeholder="비밀번호"
-                />
+                <div className="relative">
+                  <input
+                    id="pwd"
+                    name="password"
+                    type={isPwdShow ? 'text' : 'password'}
+                    value={pwd}
+                    onChange={handleChangePwd}
+                    className="input pt-3 pb-0 text-xs"
+                  />
+                  {pwd !== '' && (
+                    <button
+                      type="button"
+                      className="absolute top-1/2 right-[1px] h-[35px] bg-white border border-transparent py-1 px-2 transform -translate-y-1/2 text-sm font-semibold"
+                      onClick={handlePwdShow}
+                    >
+                      {isPwdShow ? '숨기기' : '비밀번호 표시'}
+                    </button>
+                  )}
+                  <label
+                    htmlFor="pwd"
+                    className={`${pwd && 'active'}
+                    pointer-events-none placeholder-scale absolute left-2 top-1/2 transform -translate-y-1/2 text-xs text-gray-400`}
+                  >
+                    비밀번호
+                  </label>
+                </div>
                 <button
                   type="submit"
-                  className="w-full mt-4 py-1.5 bg-[rgba(0,149,246,.3)] text-white font-semibold text-sm rounded-[4px]"
+                  className={`w-full mt-4 py-1.5 text-white font-semibold text-sm rounded-[4px] 
+                    ${pwd.length >= 5 ? 'bg-[rgb(0,149,246)]' : 'pointer-events-none bg-[rgba(0,149,246,.3)]'}
+                  `}
                 >
                   로그인
                 </button>
@@ -105,7 +132,7 @@ const Login = () => {
                 </a>
               </form>
             </div>
-            <div className="box mt-2.5 py-2.5">
+            <div className="xs:box mt-2.5 py-2.5">
               <p className="text-sm m-2.5 text-center">
                 계정이 없으신가요?
                 <a href="" className="ml-1 text-sky-500 font-semibold text-sm">
