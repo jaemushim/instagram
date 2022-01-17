@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import LogoImg from '/@images/logo.png';
+import LogoImg from '@images/logo.png';
 import SearchIcon from '@images/search.svg';
 import HomeIcon from '@images/home.svg';
 import PaperPlaneIcon from '@images/paperPlane.svg';
