@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useState } from 'react';
 import { PostType, CaptionType } from './Posts';
-import DotsHorizontalIcon from '/assets/images/dotsHorizontal.svg';
-import HeartIcon from '/assets/images/heart.svg';
-import HeartFilledIcon from '/assets/images/heartFilled.svg';
-import PaperPlaneIcon from '/assets/images/paperPlane.svg';
-import ChatIcon from '/assets/images/chat.svg';
-import BookMarkIcon from '/assets/images/bookMark.svg';
-import EmojiHappyIcon from '/assets/images/emojiHappy.svg';
+import DotsHorizontalIcon from '@images/dotsHorizontal.svg';
+import HeartIcon from '@images/heart.svg';
+import HeartFilledIcon from '@images/heartFilled.svg';
+import PaperPlaneIcon from '@images/paperPlane.svg';
+import ChatIcon from '@images/chat.svg';
+import BookMarkIcon from '@images/bookMark.svg';
+import EmojiHappyIcon from '@images/emojiHappy.svg';
 
 const Post = ({ id, username, userImg, img, captions }: PostType) => {
   const [isLikeSelect, setIsLikeSelect] = useState<boolean>();

@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import LogoImg from '/assets/images/logo.png';
-import SearchIcon from '/assets/images/search.svg';
-import HomeIcon from '/assets/images/home.svg';
-import PaperPlaneIcon from '/assets/images/paperPlane.svg';
-import PlusCircleIcon from '/assets/images/plusCircle.svg';
-import CompassIcon from '/assets/images/compass.svg';
-import HeartIcon from '/assets/images/heart.svg';
+import LogoImg from '/@images/logo.png';
+import SearchIcon from '@images/search.svg';
+import HomeIcon from '@images/home.svg';
+import PaperPlaneIcon from '@images/paperPlane.svg';
+import PlusCircleIcon from '@images/plusCircle.svg';
+import CompassIcon from '@images/compass.svg';
+import HeartIcon from '@images/heart.svg';
 
 const Header = () => {
   return (

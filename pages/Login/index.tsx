@@ -1,15 +1,15 @@
 import { useCallback, useState } from 'react';
 import Router from 'next/router';
 import Image from 'next/image';
-import IOSAppDownloadImg from '/assets/images/4a5c9d62d51b.png';
-import AndroidAppDownloadImg from '/assets/images/f155b664a93b.png';
-import Slide01Img from '/assets/images/d6bf0c928b5a.jpg';
-import Slide02Img from '/assets/images/6f03eb85463c.jpg';
-import Slide03Img from '/assets/images/f0c687aa6ec2.jpg';
-import Slide04Img from '/assets/images/842fe5699220.jpg';
-import Slide05Img from '/assets/images/0a2d3016f375.jpg';
-import FadeGallery from '../../components/FadeGallery';
-import useInput from '../../hooks/useInput';
+import IOSAppDownloadImg from '@images/4a5c9d62d51b.png';
+import AndroidAppDownloadImg from '@images/f155b664a93b.png';
+import Slide01Img from '@images/d6bf0c928b5a.jpg';
+import Slide02Img from '@images/6f03eb85463c.jpg';
+import Slide03Img from '@images/f0c687aa6ec2.jpg';
+import Slide04Img from '@images/842fe5699220.jpg';
+import Slide05Img from '@images/0a2d3016f375.jpg';
+import useInput from '@hooks/useInput';
+import FadeGallery from '@components/FadeGallery';
 
 const Login = () => {
   const [email, handleChangeEmail] = useInput({

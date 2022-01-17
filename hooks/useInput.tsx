@@ -1,5 +1,5 @@
 import { useState, useCallback, useRef } from 'react';
-import { removeNonNumeric } from '../utils/StringUtils';
+import { removeNonNumeric } from '@utils/StringUtils';
 
 interface Options {
   initialValue?: string;
